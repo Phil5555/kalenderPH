@@ -65,6 +65,7 @@
 \newdimen\PH@eventwidthS 
 
 \newif\ifPH@showweeknumbers \PH@showweeknumbersfalse
+\newif\ifPH@showtitle \PH@showtitletrue
 \newif\ifPH@showweekdays \PH@showweekdaystrue
 \newif\ifPH@print \PH@printfalse
 \newif\ifPH@XeOrLua \PH@XeOrLuafalse
@@ -78,6 +79,7 @@
 \pgfkeys{
   /PH/.cd,
   showweeknumbers/.is if = PH@showweeknumbers,
+  showtitle/.is if = PH@showtitle,
   showweekdays/.is if = PH@showweekdays,
   print/.is if = PH@print,
   events/.store in=\PH@events@files,
@@ -170,9 +172,9 @@
   \@tempcnta=\PH@calheight
   \divide\@tempcnta by \@M %
   \PH@yunit=\@tempcnta sp %                 0.05974pt (a4)
-  \PH@daywidth=650\PH@xunit%                    45mm (a4)
+  \PH@daywidth=700\PH@xunit%                    45mm (a4)
   \PH@daysep=118\PH@xunit   %                   3.5mm (a4)
-  \PH@dayheight=165\PH@xunit%                   5.7mm (a4)
+  \PH@dayheight=166\PH@xunit%                   5.7mm (a4)
   \PH@setFont{PH@dayFont}{134}%                   8pt (a4)     
   \PH@setFont{PH@dayNbFont}{167}%                10pt (a4)
   \PH@setFont{PH@eventFont}{70}%                 8pt (a4)
@@ -356,10 +358,12 @@
     \end{tikzpicture}%
   }%
   \parbox[c][\PH@calheight]{\PH@calwidth}{%
-    \vfill
     \centering
-    \PH@formatTitle{\wd\PH@tempbox}{\PH@yearText}{\PH@title}%
-    \vfill
+	\ifPH@showtitle
+		\vfill
+		\PH@formatTitle{\wd\PH@tempbox}{\PH@yearText}{\PH@title}%
+		\vfill
+	\fi
     \usebox\PH@tempbox
     \vfill
   }%
