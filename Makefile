@@ -2,7 +2,7 @@
 
 .SUFFIXES : .dtx .ins .tex .ltx .dvi .ps .pdf .eps
 
-MAIN = tikz-kalender
+MAIN = tikz-kaligned
 LATEX = pdflatex
 TEX = tex
 
@@ -12,7 +12,7 @@ DIST_DIR = $(MAIN)
 ARCHNAME = $(MAIN)-$(VERSION).zip
 EVENTS = Feiertage-2016.events Schulferien-2016.events Urlaub.events \
   Geburtstage.events Sonstiges.events 
-ADD = tikz-kalender-translation.clo
+ADD = tikz-kaligned-translation.clo
 MAIN_FILES = $(MAIN).cls $(ADD) README.md
 DOC_FILES = tikz-kalender-example1.pdf tikz-kalender-example2.pdf \
 	tikz-kalender-example1.tex tikz-kalender-example2.tex $(EVENTS)

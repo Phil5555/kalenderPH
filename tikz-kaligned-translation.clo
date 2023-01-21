@@ -1,5 +1,5 @@
-\ProvidesFile{tikz-kalender-translation.clo}[2019/06/05 v1.0c
-  Calendar translations (RN)]
+\ProvidesFile{tikz-kaligned-translation.clo}[2019/06/05 v1.0c
+  Calendar translations (PH)]
 
 % shorter strings than the default definitions
 
