@@ -19,4 +19,18 @@
 \deftranslation[to=Polish]{Sat}{So}% Sobota
 \deftranslation[to=Polish]{Sun}{Ni}% Niedziela
 
+\deftranslation[to=German]{Jan}{JAN}
+\deftranslation[to=German]{Feb}{FEB}
+\deftranslation[to=German]{Mar}{MÄRZ}
+\deftranslation[to=German]{Apr}{APR}
+\deftranslation[to=German]{May}{MAI}
+\deftranslation[to=German]{Jun}{JUNI}
+\deftranslation[to=German]{Jul}{JULI}
+\deftranslation[to=German]{Aug}{AUG}
+\deftranslation[to=German]{Sep}{SEP}
+\deftranslation[to=German]{Oct}{OKT}
+\deftranslation[to=German]{Nov}{NOV}
+\deftranslation[to=German]{Dec}{DEZ}
+
+
 \endinput
