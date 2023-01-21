@@ -1,7 +1,8 @@
-## A LaTeX based calendar using TikZ
+## A LaTeX based wall calendar using TikZ
+#with days aligned based on weekdays
 
-For usage see the example files »tikz-kalender-example1.tex«, 
-»tikz-kalender-example2.tex«, and »*.events«. See also my [Git 
+For usage see the example files »tikz-kaligned-example1.tex«, 
+»tikz-kaligned-example2.tex«, »tikz-kaligned-example3.tex« and »*.events«. See also my [Git 
 repository](https://github.com/Phil5555/kalenderRN). The Code is forked from
 https://github.com/rolfn/kalenderRN and initially inspired by this 
 [document](http://www.texample.net/tikz/examples/a-calender-for-doublesided-din-a4/) 
@@ -23,6 +24,7 @@ The class »tikz-kaligned« requires the package »tikz« and the tkiz libraries
 * `title=`_title of the calendar_
 * `events=`_list of files with events or periods_ (without the ending `.events`)
 * `showweeknumbers=`_true or empty or false_ (showing the number of the week)
+* `showweekdays=`_true or empty or false_ (showing the name of the day)
 * `lang=`_language for marking_ (option passed to package babel)
 * `paper=`_papersize abbreviation_ (understandable by package geometry;
 default: a4)
@@ -38,7 +40,9 @@ double-side printing; default: false)
 * `monthBGcolor=...` (background; default: dark)
 * `monthColor=...` (default: white)
 * `workdayColor=...`
-* `saturdayColor=...` (default: bright)
+* `saturdayColor=...` (default: black)
+* `saturdaBGyColor=...` (default: bright)
+* `sundayBGColor=...` (default: dark)
 * `sundayColor=...` (default: medium)
 
 The default colors:
@@ -73,8 +77,11 @@ The default colors:
 * `\event*{2016-03-27}{Ostersonntag}`; event colored with the color defined
 by the key `eventColor` (general holiday)
 
+* `\event*{2016-07-10}{Fußball-EM: Endspiel}[bgcolor=DarkTurquoise]`;
+colored event background with a special color
+
 * `\event*{2016-07-10}{Fußball-EM: Endspiel}[color=DarkTurquoise]`;
-colored event with a special color
+colored event text with a special color
 
 * `\period{2016-12-23}{2017-01-03}`; period colored with the color defined
 by the key `periodColor`
@@ -85,4 +92,5 @@ special color
 * `\period{2016-09-12}{2016-10-04}[color=red!30,name=Urlaub]`; named period
 colored with a special color
 
-Rolf Niepraschk, 2018-04-01
+Phil, 2023-01-21
+(forked 2023-01-20 from Rolf Niepraschk, 2018-04-01)

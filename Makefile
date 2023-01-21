@@ -17,7 +17,7 @@ MAIN_FILES = $(MAIN).cls $(ADD) README.md
 DOC_FILES = tikz-kalender-example1.pdf tikz-kalender-example2.pdf \
 	tikz-kalender-example1.tex tikz-kalender-example2.tex $(EVENTS)
 
-all : tikz-kalender-example1.pdf tikz-kalender-example2.pdf  tikz-kalender-example3.pdf
+all : tikz-kaligned-example1.pdf tikz-kaligned-example2.pdf  tikz-kaligned-example3.pdf
 
 %.pdf : %.tex $(MAIN).cls $(ADD) $(EVENTS)
 	$(LATEX) $<
