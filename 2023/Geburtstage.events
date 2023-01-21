@@ -1,0 +1,10 @@
+
+% Jährlich wiederkehrende Termine sollten das Makro \year enthalten.
+% Yearly events should contain the macro \year.
+
+\event*{\year-03-14}{Albert Einstein (1879)}[color=Green]
+\event*{\year-03-14}{Bernd Foobar}[color=Pink,bgcolor=Red]
+\event{\year-03-14}{Qux Qax}[color=DarkTurquoise]
+\event{\year-10-09}{John Lennon (1940)}[color=DarkTurquoise]
+
+\endinput

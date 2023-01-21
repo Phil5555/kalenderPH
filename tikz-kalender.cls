@@ -28,14 +28,14 @@
 \newcommand*\RN@period@name{}
 \newcommand*\RN@xcolorOptions{}
 \newcommand*\RN@events@I{}
-\newcommand*\RN@events@II{}
 \newcommand*\RN@backgrounds{}
 \newcommand*\RN@periods{}
 \newcommand*\RN@tempa{}
 \newcommand*\RN@tempb{}
 
 \newcommand*\RN@titleColor{dark}
-\newcommand*\RN@eventColor{medium}
+\newcommand*\RN@eventColor{black}
+\newcommand*\RN@eventBGColor{medium}
 \newcommand*\RN@monthBGcolor{dark}
 \newcommand*\RN@monthColor{white}
 \newcommand*\RN@workdayColor{black}
@@ -91,6 +91,8 @@
   yearText/.store in=\RN@yearText,
   titleColor/.store in=\RN@titleColor,
   eventColor/.store in=\RN@eventColor,
+  eventBGColor/.store in=\RN@eventBGColor,
+  eventBGColor/.store in=\RN@eventBGColor,
   periodColor/.store in=\RN@periodColor,
   monthBGcolor/.store in=\RN@monthBGcolor,
   monthColor/.store in=\RN@monthColor,
@@ -196,7 +198,8 @@
 \pgfkeys{%
   /RN/.is family, /RN,
   event/.cd,
-  color/.estore in = \RN@eventColor
+  color/.estore in = \RN@eventColor,
+  bgcolor/.estore in = \RN@eventBGColor
 }
 
 \newcommand\RN@formatTitle[3]{%
@@ -279,24 +282,22 @@
     \pgfcalendarifdate{#1}{Monday}{\@tempdima=\RN@eventwidthS}{}%
   \fi
   \@ifundefined{event@#1}{%
-    \expandafter\protected@xdef\csname event@#1\endcsname{#2}%
+    \expandafter\protected@xdef\csname event@#1\endcsname{\mbox{\color{\RN@eventColor}#2}}%
     \protected@edef\@tempa{\noexpand\@ifundefined{pgf@sh@ns@cal-#1}{}{%
         \noexpand\node[anchor=south west,inner sep=0pt] at (cal-#1.south east){%
         \noexpand\RN@formatEvent{\the\@tempdima}{%
           \noexpand\csname event@#1\endcsname}};%
       }
     }%
-    \pgfcalendarifdate{#1}{at most=06-last}% first half-year?
-      {\expandafter\g@addto@macro\expandafter\RN@events@I\expandafter{\@tempa}}%
-      {\expandafter\g@addto@macro\expandafter\RN@events@II\expandafter{\@tempa}}%
+    \expandafter\g@addto@macro\expandafter\RN@events@I\expandafter{\@tempa}%
   }{%
     \expandafter\protected@xdef\csname event@#1\endcsname{%
-      #2, \csname event@#1\endcsname}%
+      \mbox{\color{\RN@eventColor}#2}, \csname event@#1\endcsname}%
   }  
   \if@tempswa
     \edef\@tempa{%
       \noexpand\ifdate{equals=#1}{\noexpand\tikzset{%
-        every day/.style={fill=\RN@eventColor}}}{}%
+        every day/.style={fill=\RN@eventBGColor}}}{}%
     }%
     \expandafter\g@addto@macro\expandafter\RN@backgrounds\expandafter{\@tempa}%
   \fi
@@ -348,7 +349,7 @@
           \pgftransformyshift{-\value{offsetFirstday}\RN@dayheight-\pgfcalendarcurrentday\RN@dayheight}%
         }%
       ];%
-      \pgfcalendarifdate{#1}{at most=06-last}{\RN@events@I}{\RN@events@II}%
+      \RN@events@I%
     \end{tikzpicture}%
   }%
   \parbox[c][\RN@calheight]{\RN@calwidth}{%
