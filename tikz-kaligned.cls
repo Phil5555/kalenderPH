@@ -341,13 +341,13 @@
           }{}%
           \ifdate{workday}{\tikzset{every day/.style=%
             {fill=\PH@workdayBGColor,text=\PH@workdayColor}}}{}%
-          %\PH@periods
+          \PH@periods
           \ifdate{Saturday}{\tikzset{every day/.style=%
             {fill=\PH@saturdayBGColor,text=\PH@saturdayColor}}}{}%
           \ifdate{Sunday}{\tikzset{every day/.style=%
             {fill=\PH@sundayBGColor,text=\PH@sundayColor}}}{}%
           \PH@backgrounds
-          \PH@periods
+          %\PH@periods
           %\PH@backgrounds
         },%
         execute at begin day scope={%
