@@ -172,15 +172,15 @@
   \@tempcnta=\PH@calheight
   \divide\@tempcnta by \@M %
   \PH@yunit=\@tempcnta sp %                 0.05974pt (a4)
-  \PH@daywidth=700\PH@xunit%                    45mm (a4)
+  \PH@daywidth=693\PH@xunit%                    45mm (a4)
   \PH@daysep=118\PH@xunit   %                   3.5mm (a4)
-  \PH@dayheight=166\PH@xunit%                   5.7mm (a4)
+  \PH@dayheight=162\PH@xunit%                   5.7mm (a4)
   \PH@setFont{PH@dayFont}{134}%                   8pt (a4)     
-  \PH@setFont{PH@dayNbFont}{167}%                10pt (a4)
+  \PH@setFont{PH@dayNbFont}{160}%                10pt (a4)
   \PH@setFont{PH@eventFont}{70}%                 8pt (a4)
-  \PH@setFont[\normalfont]{PH@normalFont}{167}%  10pt (a4)
+  \PH@setFont[\normalfont]{PH@normalFont}{160}%  10pt (a4)
   \PH@setFont{PH@weekNbFont}{134}%                8pt (a4)
-  \PH@setFont[\bfseries]{PH@monthFont}{167}%     10pt (a4)
+  \PH@setFont[\bfseries]{PH@monthFont}{160}%     10pt (a4)
   \PH@setFont[\bfseries]{PH@titleFont}{666}%     40pt (a4)
   \PH@setFont[\bfseries]{PH@yearFont}{1000}%     60pt (a4)
   \PH@normalFont
@@ -221,7 +221,7 @@
   \PH@dayFont\pgfcalendarweekdayshortname{#1}%
 }
 \newcommand*\PH@formatWeekNb[1]{%
-  \makebox(0,0){\raisebox{1.4ex}{\hspace{14ex}\PH@weekNbFont\color{\PH@weekNbColor}\arabic{#1}}}%
+  \makebox(0,0){\raisebox{1.4ex}{\hspace{16ex}\PH@weekNbFont\color{\PH@weekNbColor}\arabic{#1}}}%
 }
 \newcommand*\PH@formatEvent[2]{%
   \PH@eventFont
@@ -363,9 +363,12 @@
 		\vfill
 		\PH@formatTitle{\wd\PH@tempbox}{\PH@yearText}{\PH@title}%
 		\vfill
+	\else
+		\vspace{0.02\paperheight}
 	\fi
     \usebox\PH@tempbox
     \vfill
+	\vspace{2cm}
   }%
 }
 
